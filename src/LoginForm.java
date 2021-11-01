@@ -53,6 +53,8 @@ class LoginForm extends JFrame implements ActionListener {
         //TODO better authentification
         if (passValue.length() >= minLengthPassword && passValue.length() <= maxlengthPassword) {
 
+            errorWarning.setText("Login successful");
+            errorWarning.setForeground(Color.BLACK);
             NewPage page = new NewPage();
 
             page.setVisible(true);
