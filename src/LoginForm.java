@@ -1,18 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
-import java.lang.Exception;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-class LoginForm extends JFrame implements ActionListener
-{
+class LoginForm extends JFrame implements ActionListener {
     JButton b1;
     JPanel newPanel;
     JLabel userLabel, passLabel, errorWarning;
-    final JTextField  userField, passwordField;
+    final JTextField userField, passwordField;
     private int maxlengthPassword, minLengthPassword;
 
-    LoginForm()
-    {
+    LoginForm() {
         userLabel = new JLabel();
         userLabel.setText("Username");
 
@@ -48,37 +46,32 @@ class LoginForm extends JFrame implements ActionListener
         setTitle("PASSWORD CREATOR");
     }
 
-    public void actionPerformed(ActionEvent ae)
-    {
+    public void actionPerformed(ActionEvent ae) {
         String userValue = userField.getText();
         String passValue = passwordField.getText();
 
         //TODO better authentification
-        if (passValue.length() >= minLengthPassword && passValue.length() <= maxlengthPassword){
+        if (passValue.length() >= minLengthPassword && passValue.length() <= maxlengthPassword) {
 
-                NewPage page = new NewPage();
+            NewPage page = new NewPage();
 
-                page.setVisible(true);
+            page.setVisible(true);
 
-                JLabel wel_label = new JLabel("Welcome: "+userValue);
-                page.getContentPane().add(wel_label);
-        }else{
+            JLabel wel_label = new JLabel("Welcome: " + userValue);
+            page.getContentPane().add(wel_label);
+        } else {
             errorWarning.setText("Please enter password in between " + minLengthPassword + " and " + maxlengthPassword + " symbols.");
         }
     }
 }
-class LoginFormDemo
-{
-    public static void main(String arg[])
-    {
-        try
-        {
+
+class LoginFormDemo {
+    public static void main(String arg[]) {
+        try {
             LoginForm form = new LoginForm();
-            form.setSize(800,500);
+            form.setSize(800, 500);
             form.setVisible(true);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }

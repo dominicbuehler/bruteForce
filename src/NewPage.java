@@ -9,7 +9,7 @@ class NewPage extends JFrame
     {
         setDefaultCloseOperation(javax.swing.
                 WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Welcome");
+        setTitle("Welcome, Great Success");
         setSize(400, 200);
     }
 }  
