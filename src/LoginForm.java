@@ -53,17 +53,23 @@ class LoginForm extends JFrame implements ActionListener {
         //TODO better authentification
         if (passValue.length() >= minLengthPassword && passValue.length() <= maxlengthPassword) {
 
-            errorWarning.setText("Login successful");
-            errorWarning.setForeground(Color.BLACK);
-            NewPage page = new NewPage();
+            setSuccessfulMessage("Login Successful");
 
+            NewPage page = new NewPage();
             page.setVisible(true);
 
             JLabel wel_label = new JLabel("Welcome: " + userValue);
             page.getContentPane().add(wel_label);
+
         } else {
             errorWarning.setText("Please enter password in between " + minLengthPassword + " and " + maxlengthPassword + " symbols.");
         }
+    }
+
+
+    public void setSuccessfulMessage(String successfulMessage) {
+        errorWarning.setText(successfulMessage);
+        errorWarning.setForeground(Color.BLACK);
     }
 }
 
